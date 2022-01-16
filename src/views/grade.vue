@@ -109,9 +109,9 @@ export default {
     submit() {
       // 查成绩
       const that = this
-      const domain = "http://127.0.0.1:6677"
+      const domain = ""
       let data = {"username": this.username, "password": this.password}
-      this.$http.post(domain + `/grade_query_once`, data)
+      this.$http.post(domain + `/api/grade_query_once`, data)
         .then(res => {
           console.log(res.data)
           that.grades = res.data
@@ -135,7 +135,7 @@ export default {
       // 订阅了查成绩服务c
       if (this.checkbox) {
         let data = {"username": this.username, "password": this.password, "email": this.email}
-        this.$http.post(domain + `/grade_query_subscribe`, data)
+        this.$http.post(domain + `/api/grade_query_subscribe`, data)
             .then(res => {
               console.log(res.data)
               that.alert_status = "success"
